@@ -28,11 +28,18 @@
 	height: 100%;
 }
 
+.buttons button.span-2 {
+	border-radius: 3rem;
+	grid-column: span 2;
+	aspect-ratio: unset;
+}
+
 .row {
-	display: flex;
-	justify-content: space-around;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;
 	margin: 1rem;
+	height: 5rem;
 }
 
 .row button {
