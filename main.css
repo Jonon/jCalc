@@ -11,6 +11,15 @@
 	border: 1px solid black;
 }
 
+.display {
+	background-color: rgb(91, 109, 124);
+	margin: 1rem;
+	padding: 1rem;
+	text-align: right;
+	font-size: 1.5rem;
+	border-radius: 0.2rem;
+}
+
 .buttons {
 	display: flex;
 	flex-direction: column;
