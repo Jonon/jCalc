@@ -14,8 +14,8 @@ function divide(a, b) {
 	return a / b;
 }
 
-let a;
-let b;
+let a = "";
+let b = "";
 let operator;
 
 function operate(operator, a, b) {
