@@ -40,3 +40,30 @@ let buttonOperators = document.querySelectorAll("button.operator");
 buttonOperators.forEach((button) => {
 	button.addEventListener("click", (e) => getOperators(e));
 });
+
+function getNumericChars(e) {
+	let SelectedInput = e.currentTarget.textContent.trim();
+	if (operator == null) {
+		a += SelectedInput;
+		a = Number(a);
+	} else {
+		b += SelectedInput;
+		b = Number(b);
+	}
+}
+
+function getOperators(e) {
+	let SelectedInput = e.currentTarget.textContent.trim();
+
+	if (SelectedInput !== "=") {
+		operator = SelectedInput;
+		a = a;
+		b = b;
+	}
+
+	if (SelectedInput === "=") {
+		let sum = operate(operator, Number(a), Number(b));
+		a = sum;
+		b = "";
+	}
+}
