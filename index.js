@@ -50,10 +50,12 @@ function getNumericChars(e) {
 		b += SelectedInput;
 		b = Number(b);
 	}
+	render(SelectedInput);
 }
 
 function getOperators(e) {
 	let SelectedInput = e.currentTarget.textContent.trim();
+	render(SelectedInput);
 
 	if (SelectedInput !== "=") {
 		operator = SelectedInput;
@@ -65,5 +67,22 @@ function getOperators(e) {
 		let sum = operate(operator, Number(a), Number(b));
 		a = sum;
 		b = "";
+
+		render(sum);
 	}
+}
+
+let displayValue = "";
+
+function renderDisplay(value) {
+	document.querySelector(".display").textContent = value;
+}
+
+function updatedRender(currentDisplayValue, value) {
+	return (currentDisplayValue += value);
+}
+
+function render(updatedRenderValue) {
+	displayValue = updatedRender(displayValue, updatedRenderValue);
+	renderDisplay(displayValue);
 }
