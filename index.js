@@ -41,6 +41,18 @@ buttonOperators.forEach((button) => {
 	button.addEventListener("click", (e) => getOperators(e));
 });
 
+let clearButton = document.querySelector("button.clear");
+
+clearButton.addEventListener("click", () => clearDisplay());
+
+function clearDisplay() {
+	a = "";
+	b = "";
+	operator = null;
+	displayValue = "";
+	renderDisplay(0);
+}
+
 function getNumericChars(e) {
 	let SelectedInput = e.currentTarget.textContent.trim();
 	if (operator == null) {
