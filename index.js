@@ -31,4 +31,12 @@ function operate(operator, a, b) {
 	}
 }
 
-operate(operator, a, b);
+let buttons = document.querySelectorAll("button.digit, button.dot");
+buttons.forEach((button) => {
+	button.addEventListener("click", (e) => getNumericChars(e));
+});
+
+let buttonOperators = document.querySelectorAll("button.operator");
+buttonOperators.forEach((button) => {
+	button.addEventListener("click", (e) => getOperators(e));
+});
