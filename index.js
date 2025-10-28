@@ -70,9 +70,11 @@ function getOperators(e) {
 	render(SelectedInput);
 
 	if (SelectedInput !== "=") {
+		if (b !== "") {
+			a = operate(operator, Number(a), Number(b));
+			b = "";
+		}
 		operator = SelectedInput;
-		a = a;
-		b = b;
 	}
 
 	if (SelectedInput === "=") {
