@@ -68,7 +68,9 @@ function getNumericChars(e) {
 		b += SelectedInput;
 		b = Number(b);
 	}
-	render(SelectedInput);
+	renderDisplayResult(SelectedInput);
+	renderDisplayPrevCalc(SelectedInput);
+	showTopDisplay();
 }
 
 function getOperators(e) {
