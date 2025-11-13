@@ -17,6 +17,7 @@ function divide(a, b) {
 let a = "";
 let b = "";
 let operator;
+let globalSum = "";
 
 function operate(operator, a, b) {
 	switch (operator) {
@@ -43,14 +44,19 @@ buttonOperators.forEach((button) => {
 
 let clearButton = document.querySelector("button.clear");
 
-clearButton.addEventListener("click", () => clearDisplay());
+clearButton.addEventListener("click", () => {
+	clearDisplay(displayResult, ".display .result");
+	clearDisplay(displayPrevCalc, ".display .top");
+});
 
-function clearDisplay() {
+function clearDisplay(display, selector, number = 0) {
 	a = "";
 	b = "";
 	operator = null;
-	displayValue = "";
-	renderDisplay(0);
+	globalSum = "";
+	if (display === displayResult) displayResult = "";
+	if (display === displayPrevCalc) displayPrevCalc = "";
+	renderDisplay(selector, number);
 }
 
 function getNumericChars(e) {
