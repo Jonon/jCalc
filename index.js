@@ -76,6 +76,8 @@ function getNumericChars(e) {
 function getOperators(e) {
 	let SelectedInput = e.currentTarget.textContent.trim();
 
+	if (operator != null && SelectedInput === operator && b === "") return;
+
 	if (SelectedInput !== "=") {
 		if (b !== "") {
 			sum = operate(operator, Number(a), Number(b));
@@ -96,6 +98,11 @@ function getOperators(e) {
 	}
 
 	if (SelectedInput === "=") {
+		if (operator == null) return;
+		let btnEqual = e.currentTarget;
+		/* 	btnEqual.disabled = true; */
+		console.log(btnEqual);
+
 		let sum = operate(operator, Number(a), Number(b));
 		clearDisplay(displayResult, ".display .result");
 		clearDisplay(displayPrevCalc, ".display .top", sum);
