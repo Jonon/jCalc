@@ -75,13 +75,23 @@ function getNumericChars(e) {
 
 function getOperators(e) {
 	let SelectedInput = e.currentTarget.textContent.trim();
-	render(SelectedInput);
 
 	if (SelectedInput !== "=") {
 		if (b !== "") {
-			a = operate(operator, Number(a), Number(b));
+			sum = operate(operator, Number(a), Number(b));
+
+			clearDisplay(displayResult, ".display .result");
+			a = sum;
 			b = "";
+			renderDisplayResult(a);
+			renderDisplayPrevCalc(SelectedInput);
+		} else if (globalSum !== "" && b === "" && operator == null) {
+			displayPrevCalc = globalSum + SelectedInput;
+			renderDisplay(".display .top", displayPrevCalc);
+		} else {
+			renderDisplayPrevCalc(SelectedInput);
 		}
+
 		operator = SelectedInput;
 	}
 
