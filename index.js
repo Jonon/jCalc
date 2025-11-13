@@ -87,10 +87,14 @@ function getOperators(e) {
 
 	if (SelectedInput === "=") {
 		let sum = operate(operator, Number(a), Number(b));
+		clearDisplay(displayResult, ".display .result");
+		clearDisplay(displayPrevCalc, ".display .top", sum);
+
 		a = sum;
 		b = "";
+		globalSum = sum;
 
-		render(sum);
+		renderDisplayResult(sum);
 	}
 }
 
