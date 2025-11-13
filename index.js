@@ -92,17 +92,26 @@ function getOperators(e) {
 	}
 }
 
-let displayValue = "";
+let displayPrevCalc = "";
+let displayResult = "";
 
-function renderDisplay(value) {
-	document.querySelector(".display").textContent = value;
+function renderDisplay(selector, value) {
+	document.querySelector(selector).textContent = value;
 }
 
 function updatedRender(currentDisplayValue, value) {
 	return (currentDisplayValue += value);
 }
 
-function render(updatedRenderValue) {
-	displayValue = updatedRender(displayValue, updatedRenderValue);
-	renderDisplay(displayValue);
+function renderDisplayPrevCalc(updatedRenderValue) {
+	displayPrevCalc = updatedRender(displayPrevCalc, updatedRenderValue);
+	renderDisplay(".display .top", displayPrevCalc);
+}
+
+function renderDisplayResult(updatedRenderValue) {
+	document.querySelector(".display .result").textContent = updatedRenderValue;
+}
+
+function showTopDisplay() {
+	document.querySelector(".display .top").style.visibility = "visible";
 }
